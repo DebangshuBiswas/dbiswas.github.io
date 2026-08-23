@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Ricard FY25 | Integrated Annual Report — 50 Years of Conviviality</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #002B49;      /* Marco Deep Heritage Blue */
+            --gold: #D4AF37;         /* Convivial Gold */
+            --accent: #E63946;       /* Vibrant Highlight */
+            --terracotta: #D96B43;   /* Terroir Warmth */
+            --dark: #0A1118;
+            --light: #F8F9FA;
+            --surface: #FFFFFF;
+            --surface-alt: #F1F5F9;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 20px rgba(0, 43, 73, 0.05);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo-badge {
+            background: var(--gold);
+            color: var(--dark);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            background: linear-gradient(135deg, rgba(0, 43, 73, 0.96) 0%, rgba(10, 17, 24, 0.94) 100%), 
+                        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.15), transparent);
+            color: white;
+            padding: 140px 2rem 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-pill {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            font-weight: 800;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 1.15rem;
+            color: #94A3B8;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e5c358;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: white;
+        }
+
+        /* Metrics Bar */
+        .metrics-banner {
+            max-width: 1100px;
+            margin: -40px auto 60px;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid var(--border);
+        }
+
+        .metric-card {
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid var(--border);
+        }
+
+        .metric-card:last-child {
+            border-right: none;
+        }
+
+        .metric-val {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Global Layout */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header .tag {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* 50 Years Timeline Interactive */
+        .timeline-wrapper {
+            position: relative;
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--surface-alt);
+        }
+
+        .timeline-btn {
+            background: var(--surface-alt);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .timeline-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .timeline-content {
+            margin-top: 30px;
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .timeline-content.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .timeline-info h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .timeline-info p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: rgba(0, 43, 73, 0.08);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Interactive House of Brands */
+        .brand-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-chip.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .brand-card {
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.06);
+            border-color: var(--gold);
+        }
+
+        .brand-card-type {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .brand-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .brand-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* AI & Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .tech-card {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            position: relative;
+        }
+
+        .tech-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0, 43, 73, 0.05);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tech-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .tech-kpi {
+            background: var(--surface-alt);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark);
+            border-left: 3px solid var(--gold);
+        }
+
+        /* S&R 4 Pillars Interactive Tabber */
+        .sr-box {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+
+        .sr-menu {
+            background: var(--surface-alt);
+            border-right: 1px solid var(--border);
+        }
+
+        .sr-menu-item {
+            padding: 20px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .sr-menu-item.active {
+            background: var(--surface);
+            color: var(--primary);
+            border-left: 4px solid var(--gold);
+        }
+
+        .sr-content-pane {
+            padding: 40px;
+        }
+
+        .sr-pane {
+            display: none;
+        }
+
+        .sr-pane.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Interactive Convivial Bot / Assistant */
+        .bot-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+
+        .bot-toggle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 0 8px 24px rgba(0, 43, 73, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .bot-toggle:hover {
+            transform: scale(1.08);
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .bot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 360px;
+            height: 480px;
+            background: var(--surface);
+            border-radius: 16px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+            border: 1px solid var(--border);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .bot-window.open {
+            display: flex;
+        }
+
+        .bot-header {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bot-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 0.9rem;
+        }
+
+        .chat-bubble {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 85%;
+        }
+
+        .chat-bubble.bot {
+            background: var(--surface-alt);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-bubble.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .bot-footer {
+            padding: 12px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 8px;
+        }
+
+        .bot-footer input {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            outline: none;
+        }
+
+        .bot-footer button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Key Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Premium visual upgrades */
+        .visual-section{background:linear-gradient(135deg,#f8fafc 0%,#fff 55%,#f6f1df 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:90px 0;margin-bottom:100px}
+        .dashboard-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px}
+        .chart-card,.map-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 12px 35px rgba(0,0,0,.05)}
+        .chart-card h3,.map-card h3{color:var(--primary);margin-bottom:6px}.chart-subtitle{color:var(--text-muted);font-size:.9rem;margin-bottom:20px}
+        .chart-wrap{height:300px;position:relative}
+        .brand-visual{height:120px;border-radius:10px;margin-bottom:18px;display:flex;align-items:flex-end;padding:14px;color:white;font-weight:800;font-size:1.15rem;background:linear-gradient(135deg,rgba(0,43,73,.88),rgba(10,17,24,.55)),radial-gradient(circle at 80% 20%,rgba(212,175,55,.65),transparent 40%)}
+        .brand-card:nth-child(2) .brand-visual{background:linear-gradient(135deg,#151515,#555)}.brand-card:nth-child(3) .brand-visual{background:linear-gradient(135deg,#1b2940,#71809a)}.brand-card:nth-child(4) .brand-visual{background:linear-gradient(135deg,#3c170e,#b46b43)}
+        .brand-card:nth-child(5) .brand-visual{background:linear-gradient(135deg,#183c2c,#7eaa80)}.brand-card:nth-child(6) .brand-visual{background:linear-gradient(135deg,#302313,#b18b4b)}.brand-card:nth-child(7) .brand-visual{background:linear-gradient(135deg,#49151c,#c77c50)}.brand-card:nth-child(8) .brand-visual{background:linear-gradient(135deg,#472b12,#d4af37)}
+        .map-placeholder{min-height:300px;border-radius:14px;background:radial-gradient(circle at 22% 42%,rgba(212,175,55,.9) 0 3px,transparent 4px),radial-gradient(circle at 52% 32%,rgba(212,175,55,.9) 0 3px,transparent 4px),radial-gradient(circle at 72% 55%,rgba(212,175,55,.9) 0 3px,transparent 4px),linear-gradient(135deg,#002b49,#0a1118);position:relative;overflow:hidden}
+        .map-placeholder:before{content:"GLOBAL PRESENCE";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.9);font-size:1.4rem;font-weight:800;letter-spacing:2px}
+        .region-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.region-btn{border:1px solid var(--border);background:var(--surface-alt);padding:10px;border-radius:8px;cursor:pointer;font-weight:700;color:var(--primary);transition:var(--transition)}.region-btn:hover,.region-btn.active{background:var(--primary);color:white}
+        .brand-modal{position:fixed;inset:0;background:rgba(10,17,24,.72);backdrop-filter:blur(7px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px}.brand-modal.open{display:flex}
+        .modal-content{width:min(620px,100%);background:white;border-radius:18px;padding:32px;box-shadow:0 25px 70px rgba(0,0,0,.3);animation:fadeInUp .3s ease}.modal-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.modal-close{border:0;background:var(--surface-alt);width:38px;height:38px;border-radius:50%;cursor:pointer}
+        .modal-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.modal-kpi{background:var(--surface-alt);border-radius:10px;padding:15px}.modal-kpi strong{display:block;color:var(--primary);font-size:1.15rem}
+        .download-strip{margin-top:30px;background:var(--primary);color:white;border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}.download-strip h3{margin-bottom:4px}.download-strip p{color:#cbd5e1;font-size:.9rem}
+        .footer{background:#0a1118;color:white;padding:60px 2rem 30px}.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px}.footer h3,.footer h4{margin-bottom:12px}.footer p,.footer a{color:#94a3b8;font-size:.9rem}.footer a{text-decoration:none;display:block;margin:7px 0}.footer a:hover{color:var(--gold)}.footer-bottom{max-width:1200px;margin:35px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#64748b;font-size:.8rem}
+        .reveal{opacity:0;transform:translateY(25px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+        @media(max-width:900px){.dashboard-grid,.footer-inner{grid-template-columns:1fr}.download-strip{flex-direction:column;align-items:flex-start}}
+        @media(max-width:600px){.modal-kpis{grid-template-columns:1fr}.chart-card,.map-card{padding:20px}.bot-window{width:min(360px,calc(100vw - 32px));right:-8px}}
+
+        /* Responsive Breakpoints */
+        @media(max-width: 900px) {
+            .sr-box {
+                grid-template-columns: 1fr;
+            }
+            .sr-menu {
+                display: flex;
+                overflow-x: auto;
+            }
+            .timeline-content.active {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav>
+        <a href="#" class="logo-box">
+            <span class="logo-badge">50 YEARS</span>
+            <strong style="font-size: 1.1rem; letter-spacing: -0.5px;">Marco Ricard</strong>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About Marco Ricard</a></li>
+            <li><a href="#history">50 Years History</a></li>
+            <li><a href="#brands">House of Brands</a></li>
+            <li><a href="#strategy">BEST NXT & AI</a></li>
+            <li><a href="#sustainability">Good Times S&R</a></li>
+            <li><a href="#markets">Global Presence</a></li>
+        </ul>
+        <a href="#explore" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">FY25 Interactive View</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-pill">
+            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+            Integrated Annual Report FY25
+        </div>
+        <h1>Marco Ricard: <span>50 Years of Conviviality</span></h1>
+        <p>From a bold 1975 alliance to a modern global house of premium brands, Marco Ricard combines heritage, premiumisation, data, AI and responsible growth.</p>
+        <div class="hero-actions">
+            <a href="#history" class="btn btn-primary">Explore 50-Year Milestones</a>
+            <a href="#brands" class="btn btn-outline">Discover House of Brands</a>
+        </div>
+    </header>
+
+    <!-- FY25 Performance Metrics Ribbon -->
+    <section class="metrics-banner" id="explore">
+        <div class="metric-card">
+            <div class="metric-val">€10.96B</div>
+            <div class="metric-label">FY25 Net Sales</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-val">200+</div>
+            <div class="metric-label">Iconic Brands</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-val">+64 bps</div>
+            <div class="metric-label">Organic Margin Expansion</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-val">18,200+</div>
+            <div class="metric-label">Global Créateurs</div>
+        </div>
+    </section>
+
+
+
+    <!-- Marco Ricard Company Profile -->
+    <section class="section-container reveal" id="about" style="margin-top:90px;">
+        <div class="section-header">
+            <span class="tag">About Marco Ricard</span>
+            <h2>A Global House Built on Brands, People & Conviviality</h2>
+            <p style="color:var(--text-muted);margin-top:12px;">
+                Marco Ricard brings together a diversified portfolio of premium spirits and wines,
+                combining heritage and craftsmanship with innovation, technology and responsible growth.
+            </p>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="landmark"></i></div>
+                <h3>50 Years of Heritage</h3>
+                <p>From the 1975 alliance that created the Group to a global premium portfolio, the company has evolved through bold expansion and brand building.</p>
+                <div class="tech-kpi">1975 → 2025 · Five decades of evolution</div>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="gem"></i></div>
+                <h3>Premium Portfolio</h3>
+                <p>A house of iconic international, specialty, local and emerging brands designed to serve different markets and consumption occasions.</p>
+                <div class="tech-kpi">200+ brands represented across the portfolio</div>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="globe-2"></i></div>
+                <h3>Global Reach, Local Relevance</h3>
+                <p>International scale is combined with local market knowledge, allowing Marco Ricard to adapt brands and experiences to different cultures.</p>
+                <div class="tech-kpi">60+ operating markets highlighted in the report</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FY25 Interactive Dashboard -->
+    <section class="visual-section reveal" id="performance">
+        <div class="section-container" style="margin-bottom:0;">
+            <div class="section-header">
+                <span class="tag">FY25 Performance</span>
+                <h2>The Year in Numbers</h2>
+                <p style="color:var(--text-muted);margin-top:10px;">A visual snapshot of performance, portfolio and global reach.</p>
+            </div>
+            <div class="dashboard-grid">
+                <div class="chart-card">
+                    <h3>Net Sales & Margin Momentum</h3>
+                    <div class="chart-subtitle">Illustrative trend view based on the report metrics.</div>
+                    <div class="chart-wrap"><canvas id="performanceChart"></canvas></div>
+                </div>
+                <div class="map-card" id="markets">
+                    <h3>Global Presence</h3>
+                    <div class="chart-subtitle">Explore key operating regions.</div>
+                    <div class="map-placeholder"></div>
+                    <div class="region-list">
+                        <button class="region-btn active" onclick="showRegion('India',this)">India</button>
+                        <button class="region-btn" onclick="showRegion('Americas',this)">Americas</button>
+                        <button class="region-btn" onclick="showRegion('Europe',this)">Europe</button>
+                        <button class="region-btn" onclick="showRegion('Asia',this)">Asia</button>
+                    </div>
+                    <p id="regionText" style="margin-top:15px;color:var(--text-muted);font-size:.9rem;">India is highlighted as a key growth market, with Royal Stag and Blenders Pride featured in the portfolio.</p>
+                </div>
+            </div>
+            <div class="download-strip">
+                <div><h3>Explore the complete FY25 story</h3><p>Use this interactive experience to navigate the report.</p></div>
+                <a href="#history" class="btn btn-primary">Continue Exploring <i data-lucide="arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 50 Years History Timeline -->
+    <section class="section-container reveal" id="history">
+        <div class="section-header">
+            <span class="tag">Heritage & Evolution</span>
+            <h2>Five Decades of Daring Expansion</h2>
+        </div>
+        <div class="timeline-wrapper">
+            <div class="timeline-tabs">
+                <button class="timeline-btn active" onclick="switchTimeline(0)">1975: The Fusion</button>
+                <button class="timeline-btn" onclick="switchTimeline(1)">1988: Irish Distillers</button>
+                <button class="timeline-btn" onclick="switchTimeline(2)">2001-08: Global Scale</button>
+                <button class="timeline-btn" onclick="switchTimeline(3)">2021: The Chuan Malt</button>
+                <button class="timeline-btn" onclick="switchTimeline(4)">2025: 50th Jubilee</button>
+            </div>
+
+            <!-- Tab 1 -->
+            <div class="timeline-content active" id="tl-0">
+                <div class="timeline-info">
+                    <span class="tag-pill">Foundational Milestone</span>
+                    <h3 style="margin-top: 10px;">The Historic Alliance of Marco & Ricard</h3>
+                    <p>Putting aside a fierce pastis rivalry on French café terraces, Paul Ricard and Jean Hémard join forces to dominate the apéritif category and kick off international expansion.</p>
+                    <p><em>"We must never forget where we come from to know where we want to go."</em></p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 30px; border-radius: 12px; border-left: 4px solid var(--gold);">
+                    <h4>Key Milestone Facts</h4>
+                    <p style="font-size: 0.9rem; margin-top: 8px;">• Origins traced back to Marco Fils (1805) & Ricard (1932)<br>• Pioneered modern drinks merchandising & bistro partnerships<br>• Established roots across Provence & Mediterranean terroirs</p>
+                </div>
+            </div>
+
+            <!-- Tab 2 -->
+            <div class="timeline-content" id="tl-1">
+                <div class="timeline-info">
+                    <span class="tag-pill">Global Category Revival</span>
+                    <h3 style="margin-top: 10px;">Preserving & Globalising Irish Whiskey</h3>
+                    <p>Acquisition of Irish Distillers (Jameson, Redbreast, Midleton). Marco Ricard introduces Irish whiskey craft to new global markets, saving the category from decline and driving premiumisation.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 30px; border-radius: 12px; border-left: 4px solid var(--accent);">
+                    <h4>Craft Continuity</h4>
+                    <p style="font-size: 0.9rem; margin-top: 8px;">• Jameson is now the #1 Irish Whiskey globally<br>• Midleton Distillery single pot still traditions preserved<br>• Unrivalled growth in U.S., South Africa, and India markets</p>
+                </div>
+            </div>
+
+            <!-- Tab 3 -->
+            <div class="timeline-content" id="tl-2">
+                <div class="timeline-info">
+                    <span class="tag-pill">Transformational M&A</span>
+                    <h3 style="margin-top: 10px;">Seagram, Allied Domecq & Vin-Sprit</h3>
+                    <p>Transforming into a top-tier international leader with the addition of Martell, Chivas Regal, The Glenlivet, Ballantine's, Beefeater, Perrier-Jouët, and Absolut Vodka.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 30px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                    <h4>Portfolio Scaling</h4>
+                    <p style="font-size: 0.9rem; margin-top: 8px;">• Portfolio doubled in size with leadership across all categories<br>• Global distribution muscle in over 60 operating countries<br>• Comprehensive Prestige offering (€100+)</p>
+                </div>
+            </div>
+
+            <!-- Tab 4 -->
+            <div class="timeline-content" id="tl-3">
+                <div class="timeline-info">
+                    <span class="tag-pill">Innovation & Terroir</span>
+                    <h3 style="margin-top: 10px;">The Chuan Malt Whisky Distillery</h3>
+                    <p>First international spirits player to establish a malt whisky distillery in Emeishan, China. A bold tribute to Chinese terroir combining Scottish whisky savoir-faire.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 30px; border-radius: 12px; border-left: 4px solid var(--terracotta);">
+                    <h4>International Honors</h4>
+                    <p style="font-size: 0.9rem; margin-top: 8px;">• Double Gold at San Francisco World Spirits Competition 2025<br>• Expansion to Hong Kong, Taiwan, and Global Travel Retail<br>• Sustainable architectural integration in Mt. Emei</p>
+                </div>
+            </div>
+
+            <!-- Tab 5 -->
+            <div class="timeline-content" id="tl-4">
+                <div class="timeline-info">
+                    <span class="tag-pill">New Chapter</span>
+                    <h3 style="margin-top: 10px;">Celebrating 50 Years & Launching BEST NXT</h3>
+                    <p>A half-century of authentic human connections. Deploying predictive AI platforms (Matrix, D-Star), empowering 18,200+ employees with the Horizons Talent Marketplace.</p>
+                </div>
+                <div style="background: var(--surface-alt); padding: 30px; border-radius: 12px; border-left: 4px solid var(--gold);">
+                    <h4>Fit for the Future</h4>
+                    <p style="font-size: 0.9rem; margin-top: 8px;">• €900M operational efficiencies achieved (FY23-FY25)<br>• €1B target for next wave (FY26-FY29)<br>• 100% of Brand Homes certified Responsible Hosts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive House of Brands Showcase -->
+    <section class="section-container reveal" id="brands">
+        <div class="section-header">
+            <span class="tag">The House of Brands</span>
+            <h2>A Dynamic, Diversified Luxury Portfolio</h2>
+        </div>
+
+        <div class="brand-controls">
+            <button class="filter-chip active" onclick="filterBrands('all', this)">All Categories</button>
+            <button class="filter-chip" onclick="filterBrands('strategic', this)">Strategic International (61%)</button>
+            <button class="filter-chip" onclick="filterBrands('specialty', this)">Specialty & Craft (7%)</button>
+            <button class="filter-chip" onclick="filterBrands('local', this)">Strategic Local (18%)</button>
+            <button class="filter-chip" onclick="filterBrands('innovation', this)">Innovations & 0.0%</button>
+        </div>
+
+        <div class="brand-grid">
+            <div class="brand-card strategic" onclick="openBrandModal('Jameson')">
+                <div class="brand-visual">Jameson</div><div class="brand-card-type">Strategic International</div>
+                <h4>Jameson</h4>
+                <p>Triple distilled, remarkably smooth Irish whiskey. Official Partner of Major League Soccer and driving the new Triple Triple innovation.</p>
+            </div>
+            <div class="brand-card strategic" onclick="openBrandModal('Absolut Vodka')">
+                <div class="brand-visual">Absolut Vodka</div><div class="brand-card-type">Strategic International</div>
+                <h4>Absolut Vodka</h4>
+                <p>Pure Swedish vodka crafted in Åhus. Reasserting creative leadership with the Absolut Warhol limited edition and RTD ranges.</p>
+            </div>
+            <div class="brand-card strategic" onclick="openBrandModal('Chivas Regal')">
+                <div class="brand-visual">Chivas Regal</div><div class="brand-card-type">Strategic International</div>
+                <h4>Chivas Regal</h4>
+                <p>Icon of blended Scotch luxury. Partner of Scuderia Ferrari HP, Charles Leclerc, and Arsenal FC through the "I Rise, We Rise" platform.</p>
+            </div>
+            <div class="brand-card strategic" onclick="openBrandModal('Martell Cognac')">
+                <div class="brand-visual">Martell Cognac</div><div class="brand-card-type">Strategic International</div>
+                <h4>Martell Cognac</h4>
+                <p>Founded in 1715. Pushing cultural boundaries with Afrobeats icon Davido and the acclaimed Martell Tower immersive pop-ups in Lagos.</p>
+            </div>
+            <div class="brand-card specialty" onclick="openBrandModal(this.querySelector('h4').textContent)">
+                <div class="brand-visual">Código 1530 & Del Maguey</div><div class="brand-card-type">Specialty Agave</div>
+                <h4>Código 1530 & Del Maguey</h4>
+                <p>Ultra-premium artisanal tequila and the pioneer of Single Village Mezcal celebrating 30 years of liquid art.</p>
+            </div>
+            <div class="brand-card specialty" onclick="openBrandModal(this.querySelector('h4').textContent)">
+                <div class="brand-visual">Monkey 47 & Malfy</div><div class="brand-card-type">Specialty Craft Gin</div>
+                <h4>Monkey 47 & Malfy</h4>
+                <p>Super-premium Black Forest botanical gin alongside Italian lifestyle allure through the Malfy x Missoni couture collaboration.</p>
+            </div>
+            <div class="brand-card local" onclick="openBrandModal(this.querySelector('h4').textContent)">
+                <div class="brand-visual">Royal Stag & Blenders Pride</div><div class="brand-card-type">Strategic Local</div>
+                <h4>Royal Stag & Blenders Pride</h4>
+                <p>Leading the rapid premiumisation journey in India with the Double Dark Peaty blend and the Four Elements bespoke Scotch-grain expressions.</p>
+            </div>
+            <div class="brand-card innovation" onclick="openBrandModal(this.querySelector('h4').textContent)">
+                <div class="brand-visual">Lillet & Ricard 4.5%</div><div class="brand-card-type">Modern Innovation</div>
+                <h4>Lillet & Ricard 4.5%</h4>
+                <p>Reinventing apéritif moments with ready-to-sip 20cl Ricard 4.5% and the chic "Spritz with Style" Lillet Rosé.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST NXT & AI Acceleration -->
+    <section class="section-container reveal" id="strategy">
+        <div class="section-header">
+            <span class="tag">Strategic Roadmap</span>
+            <h2>BEST NXT: Data, AI & Skills in Action</h2>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="pie-chart"></i></div>
+                <h3>Matrix Marketing AI</h3>
+                <p>Our proprietary marketing mix modelling tool. Optimises allocation across touchpoints with predictive accuracy.</p>
+                <div class="tech-kpi">+5% ROI on spend for Lillet Germany; covers 90% of US prior-to-purchase investment.</div>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="map-pin"></i></div>
+                <h3>D-Star Sales Intelligence</h3>
+                <p>Puts predictive algorithmic insights directly at the fingertips of ground sales representatives across 60+ countries.</p>
+                <div class="tech-kpi">+260K cases sold & €3.9M net sales for Royal Stag India in H1 FY25.</div>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="trending-up"></i></div>
+                <h3>Vista Rev-Up Engine</h3>
+                <p>Drives intelligent dynamic promotional pricing and Revenue Growth Management (RGM).</p>
+                <div class="tech-kpi">Every €1 invested in promotional discount generated &gt;€1.50 incremental revenue.</div>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon"><i data-lucide="users"></i></div>
+                <h3>Horizons AI Talent Hub</h3>
+                <p>Group-wide internal talent marketplace matching employees with project "gigs", mentors, and custom skill paths.</p>
+                <div class="tech-kpi">18,200+ employees connected with personalised development opportunities.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Good Times from a Good Place (S&R) -->
+    <section class="section-container reveal" id="sustainability">
+        <div class="section-header">
+            <span class="tag">Sustainability & Responsibility</span>
+            <h2>Good Times from a Good Place: 2030 Roadmap</h2>
+        </div>
+
+        <div class="sr-box">
+            <div class="sr-menu">
+                <div class="sr-menu-item active" onclick="switchSR(0, this)">
+                    <i data-lucide="sprout"></i> Nurturing Terroir
+                </div>
+                <div class="sr-menu-item" onclick="switchSR(1, this)">
+                    <i data-lucide="heart-handshake"></i> Valuing People
+                </div>
+                <div class="sr-menu-item" onclick="switchSR(2, this)">
+                    <i data-lucide="recycle"></i> Circular Making
+                </div>
+                <div class="sr-menu-item" onclick="switchSR(3, this)">
+                    <i data-lucide="shield-check"></i> Responsible Hosting
+                </div>
+            </div>
+
+            <div class="sr-content-pane">
+                <div class="sr-pane active" id="sr-0">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Regenerative Agriculture & Biodiversity</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">Partnering with local farmers across 350 terroirs to restore soils, protect watersheds, and safeguard biodiversity.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>100%</strong> of owned vineyards piloting regenerative farming
+                        </div>
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>600 Hectares</strong> mangrove restoration in Mayabeque, Cuba
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sr-pane" id="sr-1">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Inclusive Workplace & ConviviABILITY</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">Empowering our global workforce while prioritizing equal opportunity, safety, and health.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>40%</strong> Women in Top Management positions
+                        </div>
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>-55%</strong> Lost time accident frequency rate since FY22
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sr-pane" id="sr-2">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Circular Packaging & Net Zero</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">Eliminating single-use waste, optimising glass bottle weight, and reducing carbon intensity.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>99%</strong> Recyclable, reusable or compostable packaging
+                        </div>
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>-42%</strong> Scope 1 & 2 GHG reduction vs FY22
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sr-pane" id="sr-3">
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Conscious & Convivial Drinking</h3>
+                    <p style="margin-bottom: 20px; color: var(--text-muted);">Championing the middle path of moderation and providing tools to prevent alcohol misuse.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>920M+</strong> Young adults reached by Drink More Water
+                        </div>
+                        <div style="background: var(--surface-alt); padding: 15px; border-radius: 8px;">
+                            <strong>100% (30/30)</strong> Brand Homes certified Responsible Hosts
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Brand Detail Modal -->
+    <div class="brand-modal" id="brandModal" onclick="closeBrandModal(event)">
+        <div class="modal-content">
+            <div class="modal-top">
+                <div><span class="tag">Brand Explorer</span><h2 id="modalBrandName" style="color:var(--primary);margin-top:6px;">Brand</h2><p id="modalBrandDesc" style="color:var(--text-muted);margin-top:8px;"></p></div>
+                <button class="modal-close" onclick="closeBrandModal()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-kpis">
+                <div class="modal-kpi"><strong>Premium</strong><span>Portfolio positioning</span></div>
+                <div class="modal-kpi"><strong>Global</strong><span>International reach</span></div>
+                <div class="modal-kpi"><strong>FY25</strong><span>Featured brand</span></div>
+            </div>
+            <div style="margin-top:24px;background:var(--surface-alt);padding:18px;border-radius:10px;"><strong style="color:var(--primary);">Why it matters</strong><p id="modalBrandWhy" style="color:var(--text-muted);margin-top:6px;font-size:.9rem;"></p></div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div><span class="logo-badge">50 YEARS</span><h3 style="margin-top:14px;">Marco Ricard</h3><p>Integrated Annual Report FY25 — an interactive journey through 50 years of conviviality, brands, innovation and responsible growth.</p></div>
+            <div><h4>Company</h4><a href="#about">About Marco Ricard</a><a href="#performance">FY25 Overview</a><a href="#markets">Global Presence</a></div>
+            <div><h4>Explore</h4><a href="#history">50 Years History</a><a href="#brands">House of Brands</a><a href="#strategy">BEST NXT & AI</a></div>
+            <div><h4>Impact</h4><a href="#sustainability">Sustainability</a><a href="#markets">Global Presence</a><a href="#performance">FY25 Performance</a></div>
+            <div><h4>Report</h4><a href="#explore">Key Metrics</a><a href="#history">Milestones</a><a href="#brands">Portfolio</a></div>
+        </div>
+        <div class="footer-bottom">© 2025 Marco Ricard · Interactive FY25 concept experience</div>
+    </footer>
+
+    <!-- Convivial AI Chat Assistant Widget -->
+    <div class="bot-widget">
+        <button class="bot-toggle" onclick="toggleBot()" aria-label="Open Convivial AI Guide">
+            <i data-lucide="message-square"></i>
+        </button>
+
+        <div class="bot-window" id="botWindow">
+            <div class="bot-header">
+                <div>
+                    <strong style="font-size: 0.95rem;">Convivial Guide</strong>
+                    <div style="font-size: 0.75rem; opacity: 0.85;">Marco Ricard FY25 Assistant</div>
+                </div>
+                <button onclick="toggleBot()" style="background:none; border:none; color:white; cursor:pointer;"><i data-lucide="x"></i></button>
+            </div>
+
+            <div class="bot-body" id="chatArea">
+                <div class="chat-bubble bot">
+                    Hello! I’m the Marco Ricard FY25 Guide. Ask me about our 50-year heritage, performance, brands, AI initiatives, markets or sustainability.
+                </div>
+            </div>
+
+            <div class="bot-footer">
+                <input type="text" id="botInput" placeholder="Ask e.g. Sales, BEST NXT, Jameson..." onkeypress="handleBotKey(event)">
+                <button onclick="sendBotMsg()"><i data-lucide="send" style="width: 16px; height: 16px;"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // 50-Year Timeline Switcher
+        function switchTimeline(index) {
+            document.querySelectorAll('.timeline-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', idx === index);
+            });
+            document.querySelectorAll('.timeline-content').forEach((content, idx) => {
+                content.classList.toggle('active', idx === index);
+            });
+        }
+
+        // Brand Grid Filtering
+        function filterBrands(category, chip) {
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+
+            document.querySelectorAll('.brand-card').forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // S&R Tab Navigation
+        function switchSR(index, el) {
+            document.querySelectorAll('.sr-menu-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+
+            document.querySelectorAll('.sr-pane').forEach((p, idx) => {
+                p.classList.toggle('active', idx === index);
+            });
+        }
+
+        // Chatbot Widget Interaction
+        function toggleBot() {
+            document.getElementById('botWindow').classList.toggle('open');
+        }
+
+        const qaKnowledge = {
+            "sales": "In FY25, Marco Ricard generated €10,959M in net sales with +64 bps organic operating margin expansion and €1.1B free cash flow.",
+            "50": "Marco Ricard marks its 50th anniversary (1975-2025), celebrating the foundational merger of Paul Ricard and Jean Hémard[cite: 1].",
+            "india": "India is now our #2 market globally by Net Sales. Royal Stag & Blenders Pride lead with premium single malt Longitude 77 and double-digit growth.",
+            "ai": "We leverage predictive AI like Matrix (marketing ROI), D-Star (predictive sales), Vista Rev-Up (pricing), and Horizons (talent matching).",
+            "sustainability": "Our 2030 roadmap 'Good Times from a Good Place' spans 4 pillars: Nurturing Terroir, Valuing People, Circular Making, and Responsible Hosting.",
+            "default": "Marco Ricard is the world co-leader in wines and spirits, home to 200+ brands and 18,200+ Créateurs de convivialité. Try asking about Sales, India, Brands, or Sustainability!"
+        };
+
+        function sendBotMsg() {
+            const input = document.getElementById('botInput');
+            const chat = document.getElementById('chatArea');
+            const txt = input.value.trim().toLowerCase();
+
+            if (!txt) return;
+
+            // Render User Bubble
+            const uBubble = document.createElement('div');
+            uBubble.className = 'chat-bubble user';
+            uBubble.innerText = input.value;
+            chat.appendChild(uBubble);
+            input.value = '';
+
+            // Match Response
+            let reply = qaKnowledge["default"];
+            for (let key in qaKnowledge) {
+                if (txt.includes(key)) {
+                    reply = qaKnowledge[key];
+                    break;
+                }
+            }
+
+            setTimeout(() => {
+                const bBubble = document.createElement('div');
+                bBubble.className = 'chat-bubble bot';
+                bBubble.innerText = reply;
+                chat.appendChild(bBubble);
+                chat.scrollTop = chat.scrollHeight;
+            }, 300);
+
+            chat.scrollTop = chat.scrollHeight;
+        }
+
+
+        // Interactive FY25 dashboard
+        const chartCanvas=document.getElementById('performanceChart');
+        if(chartCanvas){
+            new Chart(chartCanvas,{type:'line',data:{
+                labels:['FY21','FY22','FY23','FY24','FY25'],
+                datasets:[
+                    {label:'Illustrative Net Sales (€B)',data:[8.8,10.7,12.1,11.6,10.96],borderWidth:3,tension:.35,fill:true},
+                    {label:'Margin Index',data:[92,96,98,101,102],borderWidth:2,tension:.35,yAxisID:'y1'}
+                ]},
+                options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{beginAtZero:false},y1:{position:'right',grid:{drawOnChartArea:false}}}}
+            });
+        }
+        const regionDescriptions={
+            India:"India is highlighted as a key growth market, with Royal Stag and Blenders Pride featured in the portfolio.",
+            Americas:"The Americas represent an important premium spirits market, with major international brands and strong portfolio visibility.",
+            Europe:"Europe combines Marco Ricard's heritage markets with a broad premium spirits and wine portfolio.",
+            Asia:"Asia is a major growth region, supported by premiumisation, local relevance and international brands."
+        };
+        function showRegion(region,button){document.querySelectorAll('.region-btn').forEach(b=>b.classList.remove('active'));button.classList.add('active');document.getElementById('regionText').textContent=regionDescriptions[region];}
+        const brandDetails={
+            "Jameson":["Triple-distilled Irish whiskey with strong international recognition.","A flagship strategic international brand with a strong premiumisation role."],
+            "Absolut Vodka":["Swedish vodka known for its distinctive creative identity and global reach.","Its cultural positioning supports innovation and premium category growth."],
+            "Chivas Regal":["Blended Scotch whisky positioned around luxury, culture and modern aspiration.","A key international Scotch brand in the premium portfolio."],
+            "Martell Cognac":["A historic Cognac house founded in 1715 with a strong luxury heritage.","Connects craftsmanship and contemporary cultural partnerships."],
+            "Código 1530 & Del Maguey":["Ultra-premium agave and artisanal spirits brands.","They expand the group's specialty and craft credentials."],
+            "Monkey 47 & Malfy":["Premium gin brands combining craft credentials with distinctive lifestyle positioning.","They strengthen the specialty gin portfolio."],
+            "Royal Stag & Blenders Pride":["Leading Indian whisky brands featured in Marco Ricard's strategic local portfolio.","They demonstrate the importance of India and local premiumisation."],
+            "Lillet & Ricard 4.5%":["Modern aperitif propositions designed around evolving consumption occasions.","They represent innovation and lower-alcohol experimentation."]
+        };
+        function openBrandModal(name){const d=brandDetails[name]||["A Marco Ricard portfolio brand.","An important part of the group's diversified brand architecture."];document.getElementById('modalBrandName').textContent=name;document.getElementById('modalBrandDesc').textContent=d[0];document.getElementById('modalBrandWhy').textContent=d[1];document.getElementById('brandModal').classList.add('open');document.body.style.overflow='hidden';lucide.createIcons();}
+        function closeBrandModal(event){if(event&&event.target!==document.getElementById('brandModal'))return;document.getElementById('brandModal').classList.remove('open');document.body.style.overflow='';}
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBrandModal();});
+        const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target);}})},{threshold:.12});
+        document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+        function handleBotKey(e) {
+            if (e.key === 'Enter') sendBotMsg();
+        }
+    </script>
+</body>
+</html>
