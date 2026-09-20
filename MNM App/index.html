@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group 1: HR Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="stage">
+    <div class="header">
+        <div>
+            <h1>Group 1: HR Selection</h1>
+            <div style="font-family: var(--mono); color: var(--gold); font-size: 14px; margin-top: 5px;">Interactive ML Model Sandbox</div>
+        </div>
+        <select class="scenario-select" id="scenario-loader" onchange="loadScenario()">
+            <option value="sandbox">Sandbox Mode (Free Input)</option>
+            <option value="1">Scenario 1: The Baseline Ideal</option>
+            <option value="2">Scenario 2: The Context Blindspot (Job Hopper)</option>
+            <option value="3">Scenario 3: The Theory Clash</option>
+            <option value="4">Scenario 4: Measurement Flaw</option>
+            <option value="5">Scenario 5: Mandatory STOP Card</option>
+        </select>
+    </div>
+
+    <div class="grid">
+        <!-- Left Panel: Interactive Inputs -->
+        <div class="panel">
+            <h3>Feed the Algorithm</h3>
+            
+            <!-- Assessment Button (Redirects to quiz.html) -->
+            <button id="btn-take-test" class="btn" style="width: 100%; background: var(--gold); color: #000; margin-bottom: 20px; display: block;" onclick="window.location.href='quiz.html'">
+                Take Candidate Assessment Test
+            </button>
+            
+            
+
+            <div class="input-group">
+                <div class="top"><b>Education (Aptitude)</b><span id="val-aptitude">3 / 5</span></div>
+                <input type="range" id="in-aptitude" min="1" max="5" step="1" value="3" oninput="runModel()">
+                <span class="helper">IBM Column: Education (1 = High School, 5 = Doctorate)</span>
+            </div>
+            
+            <div class="input-group">
+                <div class="top"><b>Job Involvement (Technical)</b><span id="val-technical">3 / 4</span></div>
+                <input type="range" id="in-technical" min="1" max="4" step="1" value="3" oninput="runModel()">
+                <span class="helper">IBM Column: JobInvolvement (1 = Low, 4 = Very High)</span>
+            </div>
+
+            <div class="input-group">
+                <div class="top"><b>Relationship Sat. (Interpersonal)</b><span id="val-interview">3 / 4</span></div>
+                <input type="range" id="in-interview" min="1" max="4" step="1" value="3" oninput="runModel()">
+                <span class="helper">IBM Column: RelationshipSatisfaction (1 = Low, 4 = Very High)</span>
+            </div>
+
+            <div class="input-group">
+                <div class="top"><b>Companies Worked (Continuity)</b><span id="val-continuity">1 Company</span></div>
+                <input type="range" id="in-continuity" min="0" max="9" step="1" value="1" oninput="runModel()">
+                <span class="helper">IBM Column: NumCompaniesWorked (Algorithm penalizes job hopping)</span>
+            </div>
+
+            <div class="input-group">
+                <div class="top" style="margin-bottom: 8px;"><b>Education Field (Prestige)</b></div>
+                <select class="dropdown" id="in-college" onchange="runModel()">
+                    <option value="1.0">Life Sciences / Medical (Tier 1)</option>
+                    <option value="0.5">Technical Degree / Marketing (Tier 2)</option>
+                    <option value="0.0">Human Resources / Other (Tier 3)</option>
+                </select>
+                <span class="helper">Model trained on historical bias favoring STEM degrees.</span>
+            </div>
+        </div>
+
+        <!-- Right Panel: The Machine -->
+        <div class="panel">
+            <h3>Algorithmic Verdict</h3>
+            
+            <div class="theory-rack">
+                <div class="chip active" id="chip-job" onclick="setTheory('job')">Theory: Person-Job Fit</div>
+                <div class="chip" id="chip-org" onclick="setTheory('org')">Theory: Person-Org Fit</div>
+            </div>
+
+            <div class="prediction-score" id="ai-score">--%</div>
+            <div class="verdict-label" id="ai-verdict" style="color: var(--text-dim);">Awaiting Input</div>
+            
+            <div class="console" id="console-output">
+                > System ready.
+                > Awaiting data input...
+            </div>
+
+            <div class="btn-row">
+                <button class="btn btn-human" onclick="investigateContext()">Investigate Context</button>
+                <button class="btn btn-stop" onclick="triggerStopCard()">🚨 PLAY STOP CARD</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Debrief Modal -->
+<div class="modal" id="debrief-modal">
+    <div class="modal-content">
+        <h2 class="modal-title" id="modal-title">Action Result</h2>
+        <div class="modal-text" id="modal-text">Context goes here.</div>
+        <button class="btn" style="background: var(--gold); color: #000; padding: 10px 20px;" onclick="closeModal()">Acknowledge</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

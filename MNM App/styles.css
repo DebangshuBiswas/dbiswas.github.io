@@ -1,0 +1,68 @@
+:root {
+    --bg-base: #070C15;
+    --panel-bg: rgba(17,28,49,.72);
+    --line: #26395C;
+    --text-main: #DCE4F0;
+    --text-dim: #8DA0C0;
+    --gold: #E9B44C;
+    --green: #10b981;
+    --red: #D93B1E;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+    --sans: "IBM Plex Sans", sans-serif;
+}
+
+body {
+    margin: 0; background: var(--bg-base); color: var(--text-main);
+    font-family: var(--sans); font-size: 15px; line-height: 1.55;
+    background-image: linear-gradient(rgba(42,66,105,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(42,66,105,.16) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+#stage { padding: 40px; max-width: 1200px; margin: 0 auto; padding-bottom: 80px; }
+
+.header { border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+.header h1 { font-family: var(--sans); font-size: 32px; font-weight: 700; margin: 0; color: #fff; text-transform: uppercase; letter-spacing: 1px;}
+
+.scenario-select { background: #0b1220; color: var(--gold); border: 1px solid var(--gold); padding: 8px 12px; font-family: var(--mono); border-radius: 4px; font-size: 14px; cursor: pointer;}
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.panel { background: var(--panel-bg); border: 1px solid var(--line); border-radius: 8px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+
+h3 { margin-top: 0; font-size: 16px; color: #fff; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+
+/* Interactive Inputs */
+.input-group { margin: 20px 0; }
+.input-group .top { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px; font-weight: 600; }
+.input-group .top span { font-family: var(--mono); color: var(--gold); }
+.input-group .helper { font-size: 11px; color: var(--text-dim); display: block; margin-top: 2px; }
+
+input[type=range] { -webkit-appearance: none; width: 100%; height: 6px; background: #0b1220; border: 1px solid var(--line); border-radius: 3px; outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--gold); cursor: pointer; border: 2px solid #000; }
+
+select.dropdown { width: 100%; background: #0b1220; color: #fff; border: 1px solid var(--line); padding: 10px; font-family: var(--sans); border-radius: 4px; outline: none; }
+
+/* The Machine Console */
+.console { background: #02040a; border: 1px solid var(--line); border-radius: 6px; font-family: var(--mono); font-size: 13px; padding: 15px; color: #9FB4D4; white-space: pre-wrap; height: 160px; overflow-y: auto; }
+.c-highlight { color: var(--gold); }
+.c-warn { color: var(--red); }
+
+.prediction-score { font-family: var(--mono); font-size: 64px; text-align: center; color: var(--text-main); font-weight: 700; margin: 15px 0; transition: color 0.3s; }
+.verdict-label { text-align: center; font-family: var(--sans); font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+
+/* Theory Chips */
+.theory-rack { display: flex; gap: 10px; margin-bottom: 20px; }
+.chip { border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; cursor: pointer; background: #0b1220; color: var(--text-dim); font-size: 12px; font-family: var(--mono); transition: 0.2s; flex: 1; text-align: center;}
+.chip.active { border-color: var(--gold); background: rgba(233,180,76,.1); color: var(--gold); }
+
+/* Action Buttons */
+.btn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.btn { padding: 12px; font-family: var(--sans); font-size: 14px; font-weight: 700; border: none; border-radius: 4px; cursor: pointer; text-transform: uppercase; transition: transform 0.1s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-human { grid-column: span 1; background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-stop { grid-column: span 1; background: var(--red); color: #fff; border: 2px solid #ff7a66; }
+
+/* Modal for Debriefs */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 50; }
+.modal-content { background: var(--bg-base); padding: 30px; border: 1px solid var(--gold); border-radius: 8px; max-width: 600px; text-align: left; }
+.modal-title { color: var(--gold); font-size: 20px; font-weight: 700; margin-top: 0; text-transform: uppercase; }
+.modal-text { color: var(--text-main); font-size: 15px; margin-bottom: 20px; line-height: 1.6; }

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Assessment Questionnaire</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .quiz-container { max-width: 850px; margin: 40px auto; }
+        .question-block { background: var(--panel-bg); border: 1px solid var(--line); border-radius: 8px; padding: 25px; margin-bottom: 20px; }
+        .question-text { font-weight: 600; margin-top: 0; margin-bottom: 15px; font-size: 16px; color: #fff; }
+        .option-label { display: block; margin-bottom: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 4px; cursor: pointer; transition: 0.2s; background: #0b1220; font-size: 14px; }
+        .option-label:hover { border-color: var(--gold); background: rgba(233,180,76,.1); }
+        input[type="radio"] { margin-right: 10px; accent-color: var(--gold); }
+        .section-title { color: var(--gold); margin-bottom: 20px; margin-top: 40px; border-bottom: 1px solid var(--line); padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;}
+    </style>
+</head>
+<body>
+
+<div id="stage" class="quiz-container">
+    <div class="header">
+        <div>
+            <h1>Candidate Questionnaire</h1>
+            <div style="font-family: var(--mono); color: var(--gold); font-size: 14px; margin-top: 5px;">Psychological Assessment & Proxy Measurement</div>
+        </div>
+    </div>
+
+    <form id="sjt-form">
+        <!-- ========================================== -->
+        <!-- SECTION A: JOB INVOLVEMENT                 -->
+        <!-- ========================================== -->
+        <h3 class="section-title">Section A: Job Involvement (Technical)</h3>
+        
+        <div class="question-block">
+            <p class="question-text">1. When you encounter a difficult technical problem at work, how likely are you to keep working until you find a solution?</p>
+            <label class="option-label"><input type="radio" name="q_tech1" value="1"> 1 - Very Unlikely</label>
+            <label class="option-label"><input type="radio" name="q_tech1" value="2"> 2 - Unlikely</label>
+            <label class="option-label"><input type="radio" name="q_tech1" value="3"> 3 - Likely</label>
+            <label class="option-label"><input type="radio" name="q_tech1" value="4"> 4 - Very Likely</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">2. How strongly do you identify yourself with the technical work you perform?</p>
+            <label class="option-label"><input type="radio" name="q_tech2" value="1"> 1 - Not at all</label>
+            <label class="option-label"><input type="radio" name="q_tech2" value="2"> 2 - Slightly</label>
+            <label class="option-label"><input type="radio" name="q_tech2" value="3"> 3 - Quite strongly</label>
+            <label class="option-label"><input type="radio" name="q_tech2" value="4"> 4 - Very strongly</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">3. How often do you voluntarily try to improve your technical knowledge or skills?</p>
+            <label class="option-label"><input type="radio" name="q_tech3" value="1"> 1 - Never</label>
+            <label class="option-label"><input type="radio" name="q_tech3" value="2"> 2 - Rarely</label>
+            <label class="option-label"><input type="radio" name="q_tech3" value="3"> 3 - Often</label>
+            <label class="option-label"><input type="radio" name="q_tech3" value="4"> 4 - Very often</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">4. If a technical project you worked on fails, how personally responsible do you feel?</p>
+            <label class="option-label"><input type="radio" name="q_tech4" value="1"> 1 - Not at all responsible</label>
+            <label class="option-label"><input type="radio" name="q_tech4" value="2"> 2 - Slightly responsible</label>
+            <label class="option-label"><input type="radio" name="q_tech4" value="3"> 3 - Quite responsible</label>
+            <label class="option-label"><input type="radio" name="q_tech4" value="4"> 4 - Very responsible</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">5. How motivated are you when you receive a technically challenging assignment?</p>
+            <label class="option-label"><input type="radio" name="q_tech5" value="1"> 1 - Not motivated</label>
+            <label class="option-label"><input type="radio" name="q_tech5" value="2"> 2 - Slightly motivated</label>
+            <label class="option-label"><input type="radio" name="q_tech5" value="3"> 3 - Motivated</label>
+            <label class="option-label"><input type="radio" name="q_tech5" value="4"> 4 - Highly motivated</label>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SECTION B: RELATIONSHIP SATISFACTION       -->
+        <!-- ========================================== -->
+        <h3 class="section-title">Section B: Relationship Satisfaction (Interpersonal)</h3>
+        
+        <div class="question-block">
+            <p class="question-text">6. How comfortable are you expressing a different opinion from your colleagues?</p>
+            <label class="option-label"><input type="radio" name="q_int1" value="1"> 1 - Very uncomfortable</label>
+            <label class="option-label"><input type="radio" name="q_int1" value="2"> 2 - Uncomfortable</label>
+            <label class="option-label"><input type="radio" name="q_int1" value="3"> 3 - Comfortable</label>
+            <label class="option-label"><input type="radio" name="q_int1" value="4"> 4 - Very comfortable</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">7. When you face a workplace difficulty, how easily can you approach a colleague for support?</p>
+            <label class="option-label"><input type="radio" name="q_int2" value="1"> 1 - Very difficult</label>
+            <label class="option-label"><input type="radio" name="q_int2" value="2"> 2 - Difficult</label>
+            <label class="option-label"><input type="radio" name="q_int2" value="3"> 3 - Easy</label>
+            <label class="option-label"><input type="radio" name="q_int2" value="4"> 4 - Very easy</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">8. How strongly do you feel that your colleagues respect your opinions?</p>
+            <label class="option-label"><input type="radio" name="q_int3" value="1"> 1 - Not at all</label>
+            <label class="option-label"><input type="radio" name="q_int3" value="2"> 2 - Slightly</label>
+            <label class="option-label"><input type="radio" name="q_int3" value="3"> 3 - Quite strongly</label>
+            <label class="option-label"><input type="radio" name="q_int3" value="4"> 4 - Very strongly</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">9. If you make a mistake at work, how confident are you that your colleagues will support you?</p>
+            <label class="option-label"><input type="radio" name="q_int4" value="1"> 1 - Not at all confident</label>
+            <label class="option-label"><input type="radio" name="q_int4" value="2"> 2 - Slightly confident</label>
+            <label class="option-label"><input type="radio" name="q_int4" value="3"> 3 - Confident</label>
+            <label class="option-label"><input type="radio" name="q_int4" value="4"> 4 - Very confident</label>
+        </div>
+
+        <div class="question-block">
+            <p class="question-text">10. How effectively can you maintain a positive working relationship with someone whose views differ from yours?</p>
+            <label class="option-label"><input type="radio" name="q_int5" value="1"> 1 - Very poorly</label>
+            <label class="option-label"><input type="radio" name="q_int5" value="2"> 2 - Poorly</label>
+            <label class="option-label"><input type="radio" name="q_int5" value="3"> 3 - Well</label>
+            <label class="option-label"><input type="radio" name="q_int5" value="4"> 4 - Very well</label>
+        </div>
+
+        <div class="btn-row" style="margin-top: 40px;">
+            <button type="button" class="btn btn-human" onclick="window.location.href='index.html'">Cancel & Return</button>
+            <button type="button" class="btn btn-stop" style="background: var(--gold); color: #000; border: none;" onclick="processSJT()">Submit Assessment</button>
+        </div>
+    </form>
+
+    <!-- ========================================== -->
+    <!-- RESULTS VIEW (Hidden until submit)         -->
+    <!-- ========================================== -->
+    <div id="results-view" style="display: none; text-align: center; padding: 40px 20px;">
+        <h2 style="color: var(--gold); font-size: 28px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Assessment Complete</h2>
+        <p style="color: var(--text-dim); margin-bottom: 40px; font-size: 15px;">Qualitative behaviors have been successfully mapped to numerical proxy vectors.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap;">
+            <div style="background: var(--panel-bg); border: 1px solid var(--line); padding: 25px; border-radius: 8px; width: 220px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                <div style="font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Technical Proxy</div>
+                <div id="score-tech" style="font-family: var(--mono); font-size: 56px; color: #fff; font-weight: 700; margin: 10px 0;">--</div>
+                <div style="font-size: 13px; color: var(--gold);">Scale: 1 to 4</div>
+            </div>
+            
+            <div style="background: var(--panel-bg); border: 1px solid var(--line); padding: 25px; border-radius: 8px; width: 220px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                <div style="font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Interpersonal Proxy</div>
+                <div id="score-int" style="font-family: var(--mono); font-size: 56px; color: #fff; font-weight: 700; margin: 10px 0;">--</div>
+                <div style="font-size: 13px; color: var(--gold);">Scale: 1 to 4</div>
+            </div>
+        </div>
+
+        <button class="btn" style="background: var(--gold); color: #000; padding: 15px 30px; font-size: 16px;" onclick="window.location.href='index.html'">
+            Inject Data into Sandbox Engine
+        </button>
+    </div>
+
+</div>
+
+<script>
+    function processSJT() {
+        // Collect Technical Scores
+        const t1 = document.querySelector('input[name="q_tech1"]:checked');
+        const t2 = document.querySelector('input[name="q_tech2"]:checked');
+        const t3 = document.querySelector('input[name="q_tech3"]:checked');
+        const t4 = document.querySelector('input[name="q_tech4"]:checked');
+        const t5 = document.querySelector('input[name="q_tech5"]:checked');
+
+        // Collect Interpersonal Scores
+        const i1 = document.querySelector('input[name="q_int1"]:checked');
+        const i2 = document.querySelector('input[name="q_int2"]:checked');
+        const i3 = document.querySelector('input[name="q_int3"]:checked');
+        const i4 = document.querySelector('input[name="q_int4"]:checked');
+        const i5 = document.querySelector('input[name="q_int5"]:checked');
+
+        if (!t1 || !t2 || !t3 || !t4 || !t5 || !i1 || !i2 || !i3 || !i4 || !i5) {
+            alert("Please answer all 10 items to generate an accurate profile.");
+            return;
+        }
+
+        // Calculate averages (Sum / 5) and round to nearest integer to fit 1-4 sliders
+        let techAvg = Math.round((parseInt(t1.value) + parseInt(t2.value) + parseInt(t3.value) + parseInt(t4.value) + parseInt(t5.value)) / 5);
+        let intAvg = Math.round((parseInt(i1.value) + parseInt(i2.value) + parseInt(i3.value) + parseInt(i4.value) + parseInt(i5.value)) / 5);
+
+        // Save scores to browser memory
+        localStorage.setItem('sjt_tech', techAvg);
+        localStorage.setItem('sjt_int', intAvg);
+        localStorage.setItem('sjt_completed', 'true');
+
+        // UI Update: Hide the form and show the results view
+        document.getElementById('sjt-form').style.display = 'none';
+        document.getElementById('results-view').style.display = 'block';
+        
+        // Populate the dynamic scores
+        document.getElementById('score-tech').innerText = techAvg;
+        document.getElementById('score-int').innerText = intAvg;
+        
+        // Scroll to the top to ensure the results are centered
+        window.scrollTo(0, 0);
+    }
+</script>
+</body>
+</html>
